@@ -1,0 +1,2 @@
+Arastar : Persian language extension for LibreOffice
+2015 Ahmad Hamzeei

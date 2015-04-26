@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Testing" script:language="StarBasic">REM  *****  BASIC  *****
+Option Explicit
+
+Sub ReplaceYe
+	Dim oDescriptor    &apos;The search descriptor
+	Dim oFound         &apos;The found range
+	Dim oFoundAll      &apos;The found range
+	Dim n As Integer   &apos;General index variable
+	
+	oDescriptor = ThisComponent.createSearchDescriptor()
+	oDescriptor.SearchString = &quot;ي&quot;
+	oFoundAll = ThisComponent.findAll(oDescriptor)
+	
+	For n = 0 to oFoundAll.getCount() - 1
+		oFound = oFoundAll.getByIndex(n)
+		&apos;Print oFound.getString()
+		oFound.setString(&quot;ی&quot;)
+	Next
+	
+	MsgBox (&quot;موارد اصلاح شده: &quot; &amp; n, 0, &quot;اصلاح نویسه&quot;)
+End Sub
+</script:module>
